@@ -25,8 +25,8 @@ if (!empty($_POST) && !empty($_POST['login']) && !empty($_POST['mail'])){
     }
     else
     {
-        setUser($user['ID'], $_POST['login'], $_POST['mail'], $_POST['password']);
-        $_SESSION['message'] = "L'utilisateur ".$user['login']." a bien été mis à jour";
+        setUser($user['ID'], $_POST['login'], $_POST['mail'], $_POST['password'], $_POST['rue'], $_POST['numero'], $_POST['cp'], $_POST['localite']);
+        $_SESSION['message'] = 'L\'utilisateur '.$user['login'].' a bien été mis à jour';
         header("Location: ".ROOT_PATH);
         exit();
     }

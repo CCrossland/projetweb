@@ -1,9 +1,9 @@
 <?php
 require_once 'models/db.php';
 
-function getUserById($id) {
-    $reponse = getDB()->prepare('SELECT * FROM UTILISATEUR WHERE id = :id');
-    $reponse->execute([':id' => $id]);
+function getUserById($ID) {
+    $reponse = getDB()->prepare('SELECT * FROM UTILISATEUR WHERE ID = :ID');
+    $reponse->execute([':ID' => $ID]);
     $user = $reponse->fetch();
     $reponse->closeCursor(); // Termine le traitement de la requête
     return $user;
@@ -17,17 +17,16 @@ function getUserByLogin($login) {
     return $user;
 }
 
-function setUser($id, $login, $mail, $password) {
-    $user = getUserById($id);
-    //C'est ici qu'on va faire l'update de l'utilisateur.
-    $reponse = getDB()->prepare('UPDATE UTILISATEUR SET login = :login, mail = :mail, password = :password WHERE ID = :id');
+function setUser($ID, $login, $mail, $password, $rue = "", $numero = "", $cp = "", $localite = "") {
+    $user = getUserById($ID);
+    $reponse = getDB()->prepare('UPDATE UTILISATEUR SET login = :login, mail = :mail, password = :password, rue = :rue, numero = :numero, cp = :cp, localite = :localite WHERE ID = :ID');
     if($password){
         $password = password_hash($password, PASSWORD_DEFAULT);
     }
     else {
         $password = $user['password'];
     }
-    $reponse->execute([':id' => $id, ':mail' => $mail, ':password' => $password, ':login' => $login]);
+    $reponse->execute([':ID' => $ID, ':login' => $login,':mail' => $mail,':password' => $password, ':rue' => $rue, ':numero' => $numero, ':cp' => $cp, ':localite' => $localite]);
     $reponse->closeCursor(); // Termine le traitement de la requête
 }
 
@@ -42,10 +41,28 @@ function checkUserExist($login){
     }
 }
 
+function getAllFromUser(){
+    $reponse = getDB()->query('SELECT * FROM UTILISATEUR');
+    $users = $reponse->fetchAll();
+    $reponse->closeCursor(); // Termine le traitement de la requête
+    return $users;
+}
+
 function createUser($login, $password, $mail, $nom, $prenom) {
-    $reponse = getDB()->prepare('INSERT INTO UTILISATEUR SET login = :login, password = :password, mail = :mail, nom = :nom, prenom = :prenom');
-                $reponse->execute([':login' => $_POST['login'],':password' => password_hash($_POST['password'], PASSWORD_DEFAULT), ':mail' => $_POST['mail'], ':nom' => $_POST['nom'], ':prenom' => $_POST['prenom']]);
-                $reponse->closeCursor(); // Termine le traitement de la requête
+    $reponse = getDB()->prepare('INSERT INTO UTILISATEUR SET login = :login, password = :password, mail = :mail, nom = :nom, prenom = :prenom, roleID = :roleID');
+    $reponse->execute([':login' => $login, ':password' => password_hash($password, PASSWORD_DEFAULT), ':mail' => $mail, ':nom' => $nom, ':prenom' => $prenom, ':roleID' => 3]);
+    $reponse->closeCursor(); // Termine le traitement de la requête
+}
+
+function deleteUser($login){
+    $reponse = getDB()->prepare("DELETE FROM UTILISATEUR WHERE login = :login");
+    $reponse->execute([':login' => $login]);
+    $reponse->closeCursor();
+}
+
+function checkUserRole($ID){
+    $user = getUserById($ID);
+    return $user['roleID'];
 }
 
 ?>
