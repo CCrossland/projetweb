@@ -6,4 +6,4 @@ Editer les variables:
 $BDD_LOGIN, $BDD_MDP, ROOT_PATH dans le fichier index.php.
 $bdd dans le ficher models/db
 
-dump du fichier superchouette.sql accessible à la racine du répertoire.
+dump accessible à la racine du répertoire.
