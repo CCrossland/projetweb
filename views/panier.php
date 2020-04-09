@@ -16,16 +16,20 @@ ob_start();
   <?php foreach($articles as $article):?>
     <tr>
       <th scope="row"><?= $article['nom'] ?></th>
-      <td><?= $article['prix'] ?></td>
+
+      <?php foreach($commandesEnPanier as $commandeProduit):?>
+        <?php if($commandeProduit['produitID'] == $article['ID']):?>
+          <td><?= $commandeProduit['prix'] ?></td>
+        <?php endif ?>
+      <?php endforeach ?>
+
       <td><img src="<?= ROOT_PATH.$article['image'] ?>"width="100px" height="100px"></td>
       <td>
           <a href="<?=ROOT_PATH?>article/<?= $article['nom']?>" class="btn btn-primary">Voir<a>
-            <!-- Button trigger modal -->
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal<?= $article['ID']?>">
               Supprimer
             </button>
 
-            <!-- Modal -->
             <div class="modal fade" id="modal<?= $article['ID']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">

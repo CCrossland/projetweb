@@ -12,6 +12,7 @@ if(empty($_SESSION['id'])){
 $commandes = getAllCommandeByUserID($_SESSION['id']);
 
 $articles = array();
+$commandesEnPanier= array();
 
 foreach($commandes as $commande)
 {
@@ -19,7 +20,8 @@ foreach($commandes as $commande)
 
     foreach($commandesProduit as $commandeProduit)
     {
-    array_push($articles, getJeuById($commandeProduit['ID']));
+        array_push($articles, getJeuById($commandeProduit['produitID']));
+        array_push($commandesEnPanier, $commandeProduit);
     }
 }
 
