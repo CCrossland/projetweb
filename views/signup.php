@@ -14,6 +14,7 @@
         <label for="idprenom">Prénom</label>
         <input type="text" class="form-control" id="idprenom" name="prenom">
     </div>
+    
 <!-- 
     <div class="form-group">
         <label for="idrue">Rue</label>

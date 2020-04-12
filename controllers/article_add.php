@@ -5,6 +5,7 @@ if(empty($_SESSION['id']) || checkUserRole($_SESSION['id']) >= 3){
     header("Location: ".ROOT_PATH);
     exit();
 }
+
 $consoles = getAllFromConsoles();
 $genres = getAllFromGenres();
 $limite_ages = getAllFromLimite_ages();
@@ -13,7 +14,7 @@ $multijoueurs = getAllFromMultijoueurs();
 $imagePath="";
 
 if(!empty($_POST)) {
-    if(!empty($_POST['nom']) && !empty($_POST['prix']) && !empty($_POST['consoleID'])){
+    if(!empty($_POST['nom']) && !empty($_POST['prix']) && !empty($_POST['consoleID']) && !empty($_POST['genreID']) && !empty($_POST['limite_ageID']) && !empty($_POST['multijoueurID'])){
 
         if(checkJeuExists($_POST['nom']) == true)
         {
@@ -23,13 +24,13 @@ if(!empty($_POST)) {
             }
 
             $article = createJeu($_POST['nom'], $_POST['prix'], $_POST['consoleID'], $_POST['genreID'], $_POST['limite_ageID'], $_POST['multijoueurID'], $imagePath, $_POST['description']);
-            $_SESSION['message'] = "L'article ".$_POST['nom']." ajouté avec succés";
+            $_SESSION['message'] = "Le jeu ".$_POST['nom']." a été ajouté avec succés";
             header('Location: '.ROOT_PATH.'admin_article');
             exit();
         }
         else
         {
-            $_SESSION['error'] = "L'article ".$_POST['nom']." existe déjà...";           
+            $_SESSION['error'] = "Le jeu ".$_POST['nom']." existe déjà...";           
         }
     }
     else

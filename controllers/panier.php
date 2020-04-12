@@ -9,23 +9,21 @@ if(empty($_SESSION['id'])){
     exit();
 }
 
-$commandes = getAllCommandeByUserID($_SESSION['id']);
-
 $articles = array();
-$commandesEnPanier= array();
+$total=0;
 
-foreach($commandes as $commande)
+foreach($_SESSION['panier'] as $articleEnPanier)
 {
-    $commandesProduit = getAllCommandeProduitByCommandeId($commande['ID']);
-
-    foreach($commandesProduit as $commandeProduit)
-    {
-        array_push($articles, getJeuById($commandeProduit['produitID']));
-        array_push($commandesEnPanier, $commandeProduit);
-    }
+    array_push($articles, getJeuById($articleEnPanier));
 }
 
+foreach($articles as $article)
+{
+    $total += $article['prix'];
+}
 
 include 'views/panier.php';
+
+
 
 ?>

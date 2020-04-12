@@ -20,8 +20,9 @@ ob_start();
       <td>
           <a href="<?=ROOT_PATH?>user/<?= $user['login']?>" class="btn btn-primary">Voir<a>
           <a href="<?=ROOT_PATH?>user/<?= $user['login']?>/edit" class="btn btn-warning">Editer</a>
+          
           <?php if($_SESSION['id'] != $user['ID']):?>
-            <!-- Button trigger modal -->
+            <!-- Button trigger delete (fonctionnement avec dataTarget modal) -->
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal<?= $user['ID']?>">
               Supprimer
             </button>
@@ -36,13 +37,16 @@ ob_start();
                       <span aria-hIDden="true">&times;</span>
                     </button>
                   </div>
+
                   <div class="modal-body">
                       Voulez-vous vraiment supprimer l'utilisateur <?= $user['login']?> ?
                   </div>
+
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                     <a href="<?= ROOT_PATH ?>user/<?= $user['login']?>/delete" class="btn btn-danger">Supprimer<a>
                   </div>
+
                 </div>
               </div>
             </div>

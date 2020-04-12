@@ -2,7 +2,7 @@
 ob_start();
 ?>
 
-<h3>Votre panier :</h3>
+<h3>Commande effectuée :</h3>
 <table class="table">
   <thead>
     <tr>
@@ -19,7 +19,6 @@ ob_start();
         <td><img src="<?= ROOT_PATH.$article['image'] ?>"width="100px" height="100px"></td>
         <td>
           <a href="<?=ROOT_PATH?>article/<?= $article['nom']?>" class="btn btn-primary">Voir</a>
-          <a href="<?= ROOT_PATH ?>panier/<?= $article['ID']?>/delete" class="btn btn-danger">Supprimer</a>
         </td>
       </tr>
     <?php endforeach ?>
@@ -29,12 +28,8 @@ ob_start();
 
 </table>
 
-<?php if(!empty($_SESSION['panier'])):?>
-  <a href="<?=ROOT_PATH?>commande" class="btn btn-warning">Passer Commande</a>
-<?php endif?>
-
 <?php
-  $title = "Panier";
+  $title = "Commande";
   $content = ob_get_clean();
   include('includes/template.php');
 ?>
