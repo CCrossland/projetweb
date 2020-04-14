@@ -19,6 +19,7 @@ if(!empty($_POST)) {
             $user = getUserByLogin($_POST['login']);
 
             $_SESSION['id'] = $user['ID'];
+            $_SESSION['panier'] = array();
             $_SESSION['message'] = "Bienvenue ".$user['login'];
             header("Location: ".ROOT_PATH."index");
             exit();

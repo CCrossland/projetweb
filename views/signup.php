@@ -2,7 +2,7 @@
 <form method="POST">
     <div class="form-group">
         <label for="idlogin">Login (pseudo)</label>
-        <input type="text" class="form-control" id="idlogin" name="login">
+        <input type="text" maxlength="12" pattern="[^()/><\][\\\x22,;|+ ]+" placeholder="Pas de caractères spéciaux ni d'espace autorisé" class="form-control" id="idlogin" name="login">
     </div>
 
     <div class="form-group">

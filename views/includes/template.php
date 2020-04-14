@@ -33,6 +33,9 @@ require_once 'models/users.php';
                 <?php if (!empty($_SESSION['id']) && checkUserRole($_SESSION['id']) <= 2):?>
                     <li class="nav-item active"><a class="nav-link" href="<?=ROOT_PATH?>admin_article">Administration articles</a></li>
                 <?php endif?>
+                <?php if (!empty($_SESSION['id']) && checkUserRole($_SESSION['id']) <= 2):?>
+                    <li class="nav-item active"><a class="nav-link" href="<?=ROOT_PATH?>admin_stats">Statistiques</a></li>
+                <?php endif?>
                 </ul>
                 <?php if(empty($_SESSION['id'])):?>
 

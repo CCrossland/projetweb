@@ -12,22 +12,24 @@ if(empty($_SESSION['id']))
 if(!empty($_SESSION['panier']))
 {   
     $articles=array();
-
-    createCommande($_SESSION['id']);
-
-    $idcommande = getLastIdInserted($_SESSION['id']);
+    $total=0;
 
     foreach($_SESSION['panier'] as $articleEnPanier)
     {
         array_push($articles, getJeuById($articleEnPanier));
     }
 
-    $total=0;
+    foreach($articles as $article)
+    {
+        $total+=$article['prix'];
+    }
+
+    createCommande($_SESSION['id'], $total);
+    $idcommande = getLastIdInserted($_SESSION['id']);
 
     foreach($articles as $article)
     {
         createCommandeProduit($idcommande, $article['ID'], $article['prix']);
-        $total+=$article['prix'];
     }
 
     unset($_SESSION['panier']);

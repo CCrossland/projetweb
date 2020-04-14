@@ -9,7 +9,7 @@ if(REQ_TYPE_ID){
     $user = getUserByLogin(REQ_TYPE_ID);
 }
 else {
-    $user = getUserById($_SESSION['login']);
+    $user = getUserById($_SESSION['id']);
     header("Location: ".ROOT_PATH."user/".$user['login']);
     exit();
 }

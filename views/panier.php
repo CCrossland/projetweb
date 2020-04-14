@@ -24,7 +24,7 @@ ob_start();
       </tr>
     <?php endforeach ?>
 
-    <td set='0.2'>Total : <?=$total?> €</td>
+    <td>Total : <?=$total?> €</td>
   </tbody>
 
 </table>

@@ -4,7 +4,7 @@ ob_start()
 <form method="POST">
     <div class="form-group">
         <label for="idid">Identifiant</label>
-        <input type="text" class="form-control" id="idid" name="id" value="<?= $user['ID']?>" readonly>
+        <input type="text" maxlength="12" pattern="[^()/><\][\\\x22,;|+ ]+" class="form-control" id="idid" name="id" value="<?= $user['ID']?>" readonly>
     </div>
     <div class="form-group">
         <label for="idlogin">Login</label>

@@ -18,6 +18,7 @@ Login: <?= $user['login']?>
 Email: <?= $user['mail']?>
 <br>
 <a href="<?=ROOT_PATH?>user/<?= $user['login']?>/edit" class="btn btn-warning">Editer</a>
+<a href="<?=ROOT_PATH?>user/<?= $user['login']?>/commandes" class="btn btn-warning">Vos commandes</a>
 <?php
 $content = ob_get_clean();
 include 'includes/template.php';
