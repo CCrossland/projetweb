@@ -43,5 +43,7 @@ else
     exit();
 }
 
+$_SESSION['articleBooked'] = 0;
+
 include 'views/commande.php';
 ?>

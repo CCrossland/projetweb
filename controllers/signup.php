@@ -21,6 +21,7 @@ if(!empty($_POST)) {
             $_SESSION['id'] = $user['ID'];
             $_SESSION['panier'] = array();
             $_SESSION['message'] = "Bienvenue ".$user['login'];
+            $_SESSION['articleBooked'] = 0;
             header("Location: ".ROOT_PATH."index");
             exit();
         }

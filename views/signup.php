@@ -1,5 +1,10 @@
 <?php ob_start()?>
-<form method="POST">
+
+<pre>
+    <?php print_r($_SESSION) ?>
+</pre>
+
+<form method="POST" id="signup">
     <div class="form-group">
         <label for="idlogin">Login (pseudo)</label>
         <input type="text" maxlength="12" pattern="[^()/><\][\\\x22,;|+ ]+" placeholder="Pas de caractères spéciaux ni d'espace autorisé" class="form-control" id="idlogin" name="login">

@@ -42,7 +42,7 @@ function checkUserExist($login){
 }
 
 function getAllFromUser(){
-    $reponse = getDB()->query('SELECT * FROM UTILISATEUR');
+    $reponse = getDB()->query('SELECT * FROM UTILISATEUR WHERE actif = 1');
     $users = $reponse->fetchAll();
     $reponse->closeCursor(); // Termine le traitement de la requête
     return $users;
@@ -55,7 +55,8 @@ function createUser($login, $password, $mail, $nom, $prenom) {
 }
 
 function deleteUser($login){
-    $reponse = getDB()->prepare("DELETE FROM UTILISATEUR WHERE login = :login");
+    // $reponse = getDB()->prepare("DELETE FROM UTILISATEUR WHERE login = :login");
+    $reponse = getDB()->prepare("UPDATE UTILISATEUR SET actif = 0 WHERE login = :login");
     $reponse->execute([':login' => $login]);
     $reponse->closeCursor();
 }

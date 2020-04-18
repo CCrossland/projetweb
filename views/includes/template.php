@@ -12,6 +12,13 @@ require_once 'models/users.php';
         <script src="<?=ROOT_PATH?>public/js/jquery-3.4.1.slim.min.js"></script>
         <script src="<?=ROOT_PATH?>public/js/popper.min.js"></script>
         <script src="<?=ROOT_PATH?>public/js/bootstrap.min.js"></script>
+
+        <!-- canvas -->
+        <script src="<?=ROOT_PATH?>public/js/canvasjs.min.js"></script>
+        <script src="<?=ROOT_PATH?>public/js/canvasjs.react.js"></script>
+
+        <script src="<?=ROOT_PATH?>public/js/regex.js"></script>
+
         <title><?php echo $title; ?></title>
     </head>
 
@@ -46,7 +53,7 @@ require_once 'models/users.php';
 
                 <?php else:?>
 
-                    <a href="<?=ROOT_PATH?>panier" class="btn btn-outline-info my-2 my-sm-0">Mon panier</a>
+                    <a href="<?=ROOT_PATH?>panier" class="btn btn-outline-info my-2 my-sm-0">Mon panier <?= $_SESSION['articleBooked'] ?></a>
                     <a href="<?=ROOT_PATH?>user" class="btn btn-outline-info my-2 my-sm-0">Mon compte</a>
                     <a href="<?=ROOT_PATH?>logout" class="btn btn-outline-success my-2 my-sm-0">Se déconnecter</a>
                 <?php endif?>

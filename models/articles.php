@@ -3,7 +3,15 @@ require_once 'models/db.php';
 
 function getAllFromArticles()
 {
-    $reponse = getDB()->query('SELECT * FROM Produit');
+    $reponse = getDB()->query('SELECT p.ID AS ID, p.nom AS nom, prix, consoleID, genreID, limite_ageID, multijoueurID, image, description, g.nom AS genreNom, c.nom AS consoleNom FROM produit AS p JOIN genre AS g ON p.genreID = g.ID JOIN console AS c ON p.consoleID = c.ID WHERE actif = 1');
+    $articles = $reponse->fetchAll();
+    $reponse->closeCursor();
+    return $articles;
+}
+
+function getAllAndUnactiveFromArticles()
+{
+    $reponse = getDB()->query('SELECT * FROM produit');
     $articles = $reponse->fetchAll();
     $reponse->closeCursor();
     return $articles;
@@ -21,7 +29,7 @@ function getJeuByNom($nom)
 
 function getJeuById($id)
 {
-    $reponse = getDB()->prepare('SELECT * FROM Produit WHERE ID = :id');
+    $reponse = getDB()->prepare('SELECT * FROM Produit WHERE ID = :id AND actif = 1');
     $reponse->execute([':id' => $id]);
     $article = $reponse->fetch();
     $reponse->closeCursor(); 
@@ -53,7 +61,8 @@ function createJeu($nom, $prix, $consoleID = "", $genreID = "", $limite_ageID = 
 
 function deleteJeu($nom)
 {
-    $reponse = getDB()->prepare("DELETE FROM Produit WHERE nom = :nom");
+    //$reponse = getDB()->prepare("DELETE FROM Produit WHERE nom = :nom");
+    $reponse = getDB()->prepare("UPDATE Produit SET actif = 0 WHERE nom = :nom");
     $reponse->execute([':nom' => $nom]);
     $reponse->closeCursor();
 }
