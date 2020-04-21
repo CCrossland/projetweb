@@ -7,7 +7,7 @@ require_once 'models/users.php';
 
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="<?=ROOT_PATH?>public/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?=ROOT_PATH?>public/css/superhero.min.css">
         <link rel="stylesheet" href="<?=ROOT_PATH?>public/css/sticky-footer-navbar.css">
         <script src="<?=ROOT_PATH?>public/js/jquery-3.4.1.slim.min.js"></script>
         <script src="<?=ROOT_PATH?>public/js/popper.min.js"></script>
@@ -24,14 +24,14 @@ require_once 'models/users.php';
 
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand" href="<?=ROOT_PATH?>">E-Shop</a>
+            <a class="navbar-brand" href="<?=ROOT_PATH?>"><h3>Jeu Vidéal</h3></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active"><a class="nav-link" href="<?=ROOT_PATH?>article">Les articles</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="<?=ROOT_PATH?>article">Notre Boutique</a></li>
                 
 
                 <?php if (!empty($_SESSION['id']) && checkUserRole($_SESSION['id']) == 1):?>
@@ -47,18 +47,19 @@ require_once 'models/users.php';
                 <?php if(empty($_SESSION['id'])):?>
 
 
-                    <a href="<?=ROOT_PATH?>login" class="btn btn-outline-success my-2 my-sm-0">Se connecter</a>
+                    <a href="<?=ROOT_PATH?>login" type="button" class="btn btn-primary">Se connecter</a>
                     
-                    <a href="<?=ROOT_PATH?>signup" class="btn btn-outline-success my-2 my-sm-0">Créer un compte</a>
+                    <a href="<?=ROOT_PATH?>signup" type="button" class="btn btn-outline-primary">Créer un compte</a>
 
                 <?php else:?>
 
-                    <a href="<?=ROOT_PATH?>panier" class="btn btn-outline-info my-2 my-sm-0">Mon panier <?= $_SESSION['articleBooked'] ?></a>
-                    <a href="<?=ROOT_PATH?>user" class="btn btn-outline-info my-2 my-sm-0">Mon compte</a>
-                    <a href="<?=ROOT_PATH?>logout" class="btn btn-outline-success my-2 my-sm-0">Se déconnecter</a>
+                    <a href="<?=ROOT_PATH?>panier" class="btn btn-warning">Mon panier <?= $_SESSION['articleBooked'] ?></a>
+                    <a href="<?=ROOT_PATH?>user" class="btn btn-primary">Mon compte</a>
+                    <a href="<?=ROOT_PATH?>logout" class="btn btn-outline-danger">Se déconnecter</a>
                 <?php endif?>
             </div>
         </nav>
+        <br>
         <main role="main" class="container">
 <?php
 if(!empty($_SESSION['message'])){
@@ -75,9 +76,9 @@ if(!empty($_SESSION['error'])){
             <?php echo $content; ?>
         </div>
         </main>
-        <footer class="footer">
+        <footer class="footer bg-dark text-white-50">
             <div class="container">
-                <span class="text-muted">E-Shop</span>
+                <span class="text-muted">&copy; Jeu Vidéal</span>
             </div>
         </footer>
     </body>

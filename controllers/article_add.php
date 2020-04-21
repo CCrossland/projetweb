@@ -41,7 +41,7 @@ if(!empty($_POST)) {
                 }
 
                 if ($_FILES["image"]["size"] > 500000) {
-                    $_SESSION['error'] = "Le fichier est trop gros.";
+                    $_SESSION['error'] = "Le fichier de l'image est trop gros.";
                     $uploadOk = 0;
                 }
 

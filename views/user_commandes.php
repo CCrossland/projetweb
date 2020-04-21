@@ -21,11 +21,12 @@ ob_start();
           <?php if ($article['commandeID'] == $commande['ID']) : ?>
 
             <tr>
-              <td><?= $article['produitNom'] ?></th>
+              <td><?= str_replace("_"," ", $article['produitNom']) ?></th>
               <td><?= $article['prix'] ?> €</td>
-              <td><img src="<?= ROOT_PATH . $article['produitImage'] ?>" width="100px" height="100px"></td>
+              <td><img src="<?= ROOT_PATH . $article['produitImage'] ?>" width="100px" height="120px"></td>
               <td>
-                <a href="<?= ROOT_PATH ?>article/<?= $article['produitNom'] ?>" class="btn btn-primary">Voir</a>
+                <a href="<?= ROOT_PATH ?>article/<?= $article['produitNom'] ?>" class="btn btn-primary">Détails</a>
+                <a href="" class="btn btn-primary">Télécharger</a>
               </td>
             </tr>
 

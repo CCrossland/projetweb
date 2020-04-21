@@ -5,7 +5,7 @@ function getUserById($ID) {
     $reponse = getDB()->prepare('SELECT * FROM UTILISATEUR WHERE ID = :ID');
     $reponse->execute([':ID' => $ID]);
     $user = $reponse->fetch();
-    $reponse->closeCursor(); // Termine le traitement de la requête
+    $reponse->closeCursor();
     return $user;
 }
 
@@ -13,21 +13,21 @@ function getUserByLogin($login) {
     $reponse = getDB()->prepare('SELECT * FROM UTILISATEUR WHERE login = :login');
     $reponse->execute([':login' => $login]);
     $user = $reponse->fetch();
-    $reponse->closeCursor(); // Termine le traitement de la requête
+    $reponse->closeCursor(); 
     return $user;
 }
 
-function setUser($ID, $login, $mail, $password, $rue = "", $numero = "", $cp = "", $localite = "") {
+function setUser($ID, $login, $mail, $password) {
     $user = getUserById($ID);
-    $reponse = getDB()->prepare('UPDATE UTILISATEUR SET login = :login, mail = :mail, password = :password, rue = :rue, numero = :numero, cp = :cp, localite = :localite WHERE ID = :ID');
+    $reponse = getDB()->prepare('UPDATE UTILISATEUR SET login = :login, mail = :mail, password = :password WHERE ID = :ID');
     if($password){
         $password = password_hash($password, PASSWORD_DEFAULT);
     }
     else {
         $password = $user['password'];
     }
-    $reponse->execute([':ID' => $ID, ':login' => $login,':mail' => $mail,':password' => $password, ':rue' => $rue, ':numero' => $numero, ':cp' => $cp, ':localite' => $localite]);
-    $reponse->closeCursor(); // Termine le traitement de la requête
+    $reponse->execute([':ID' => $ID, ':login' => $login,':mail' => $mail,':password' => $password]);
+    $reponse->closeCursor(); 
 }
 
 function checkUserExist($login){
@@ -44,7 +44,7 @@ function checkUserExist($login){
 function getAllFromUser(){
     $reponse = getDB()->query('SELECT * FROM UTILISATEUR WHERE actif = 1');
     $users = $reponse->fetchAll();
-    $reponse->closeCursor(); // Termine le traitement de la requête
+    $reponse->closeCursor();
     return $users;
 }
 

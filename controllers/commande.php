@@ -1,5 +1,6 @@
 <?php
 
+require 'models/users.php';
 require 'models/articles.php';
 require 'models/book.php';
 
@@ -11,6 +12,7 @@ if(empty($_SESSION['id']))
 
 if(!empty($_SESSION['panier']))
 {   
+    $user = getUserById($_SESSION['id']);
     $articles=array();
     $total=0;
 

@@ -16,7 +16,7 @@ Identifiant: <?= $user['ID']?>
 Login: <?= $user['login']?>
 <br>
 Email: <?= $user['mail']?>
-<br>
+<br><p>  </p><br>
 <a href="<?=ROOT_PATH?>user/<?= $user['login']?>/edit" class="btn btn-warning">Editer</a>
 <a href="<?=ROOT_PATH?>user/<?= $user['login']?>/commandes" class="btn btn-warning">Vos commandes</a>
 <?php

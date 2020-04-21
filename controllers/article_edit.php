@@ -55,7 +55,7 @@ if (!empty($_POST) && !empty($_POST['nom']) && !empty($_POST['prix'])){
             }
             // Vérifie la taille du fichier
             if ($_FILES["image"]["size"] > 500000) {
-                $_SESSION['error'] = "Le fichier est trop gros.";
+                $_SESSION['error'] = "Le fichier de l'image est trop gros.";
                 $uploadOk = 0;
             }
             // Allow certain file formats
@@ -80,7 +80,6 @@ if (!empty($_POST) && !empty($_POST['nom']) && !empty($_POST['prix'])){
                 }
             }
         }else{
-            $_SESSION['error'] = "La même image à été utilisé il n'y aura pas de modification d'image";
             $imagePath = $article['image'];
         }
         }else if($article['image'] != "public/images/no_image.jpg"){

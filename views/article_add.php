@@ -56,14 +56,14 @@ ob_start()
     </div>
 
     <div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text">Image</span>
-  </div>
-  <div class="custom-file">
-    <input type="file" class="custom-file-input" id="inputGroupFile01" name="image">
-    <label class="custom-file-label" for="inputGroupFile01">Choisir un fichier</label>
-  </div>
-</div>
+        <div class="input-group-prepend">
+            <span class="input-group-text">Image</span>
+        </div>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input " id="inputGroupFile01" name="image">
+            <label class="custom-file-label" for="inputGroupFile01">Choisir un fichier</label>
+        </div>
+    </div>
 
     <div class="form-group">
         <label for="iddescription">Description</label>

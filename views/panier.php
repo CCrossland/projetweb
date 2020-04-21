@@ -9,6 +9,7 @@ ob_start();
       <th scope="col">Nom</th>
       <th scope="col">Prix</th>
       <th scope="col">Image</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -16,9 +17,9 @@ ob_start();
       <tr>
         <th scope="row"><?= $article['nom'] ?></th>
         <td><?= $article['prix'] ?></td>
-        <td><img src="<?= ROOT_PATH.$article['image'] ?>"width="100px" height="100px"></td>
+        <td><img src="<?= ROOT_PATH.$article['image'] ?>"width="100px" height="120px"></td>
         <td>
-          <a href="<?=ROOT_PATH?>article/<?= $article['nom']?>" class="btn btn-primary">Voir</a>
+          <a href="<?=ROOT_PATH?>article/<?= $article['nom']?>" class="btn btn-primary">Détails</a>
           <a href="<?= ROOT_PATH ?>panier/<?= $article['ID']?>/delete" class="btn btn-danger">Supprimer</a>
         </td>
       </tr>

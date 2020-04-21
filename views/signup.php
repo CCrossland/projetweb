@@ -1,13 +1,10 @@
 <?php ob_start()?>
 
-<pre>
-    <?php print_r($_SESSION) ?>
-</pre>
 
 <form method="POST" id="signup">
     <div class="form-group">
         <label for="idlogin">Login (pseudo)</label>
-        <input type="text" maxlength="12" pattern="[^()/><\][\\\x22,;|+ ]+" placeholder="Pas de caractères spéciaux ni d'espace autorisé" class="form-control" id="idlogin" name="login">
+        <input type="text" maxlength="25" pattern="[^()/><\][\\\x22,;|+ ]+" placeholder="Pas de caractères spéciaux ni d'espace autorisé" class="form-control" id="idlogin" name="login">
     </div>
 
     <div class="form-group">
@@ -20,22 +17,6 @@
         <input type="text" class="form-control" id="idprenom" name="prenom">
     </div>
     
-<!-- 
-    <div class="form-group">
-        <label for="idrue">Rue</label>
-        <input type="text" class="form-control" id="idrue" name="rue">
-    </div>
-
-    <div class="form-group">
-        <label for="idnumero">Rue</label>
-        <input type="text" class="form-control" id="idnumero" name="numero">
-    </div>
-
-    <div class="form-group">
-        <label for="idcp">CP</label>
-        <input type="text" class="form-control" id="idcp" name="cp">
-    </div> -->
-
     <div class="form-group">
         <label for="idmail">Mail</label>
         <input type="text" class="form-control" id="idmail" name="mail">
@@ -58,5 +39,3 @@ $title = "Créer un compte";
 $content = ob_get_clean();
 include 'includes/template.php';
 ?>
-
-<!-- ---------------------------------------------------------------------------------------------------------------------------- -->

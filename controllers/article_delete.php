@@ -13,7 +13,7 @@ else {
     exit();
 }
 if($article){
-    deleteJeu($article['nom']);
+    deleteJeu($article['ID']);
     $_SESSION['message'] = "L'article ".$article['nom']." a bien été supprimé";
 }
 else

@@ -1,7 +1,10 @@
 <?php 
 ob_start();
 ?>
-<h3>Liste des articles</h3>
+
+<br>
+<a href="<?=ROOT_PATH?>article_add" class="btn btn-primary btn-lg"><h4>Ajouter un article</h4><a>
+<br><p> </p><br>
 <table class="table">
   <thead>
     <tr>
@@ -12,22 +15,22 @@ ob_start();
     </tr>
   </thead>
   <tbody>
-<?php foreach($articles as $article):?>
+  <?php foreach($articles as $article):?>
     <tr>
       <th scope="row"><?= $article['ID'] ?></th>
-      <td><?= $article['nom'] ?></td>
+      <td><?= str_replace("_", " ", $article['nom']) ?></td>
       <td><?= $article['prix'] ?> €</td>
-      <td><img src="<?= ROOT_PATH.$article['image'] ?>"width="100px" height="100px"></td>
+      <td><img src="<?= ROOT_PATH.$article['image'] ?>"width="100px" height="120px"></td>
       <td>
-          <a href="<?=ROOT_PATH?>article/<?= $article['nom']?>" class="btn btn-primary">Voir<a>
+          <a href="<?=ROOT_PATH?>article/<?= $article['nom']?>" class="btn btn-primary">Voir</a>
           <a href="<?=ROOT_PATH?>article/<?= $article['nom']?>/edit" class="btn btn-warning">Editer</a>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal<?= $article['ID']?>">
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal<?= $article['nom']?>">
               Supprimer
             </button>
 
             <!-- Modal -->
-            <div class="modal fade" id="modal<?= $article['ID']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modal<?= $article['nom']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -48,12 +51,11 @@ ob_start();
             </div>
       </td>
     </tr>
-<?php endforeach ?>
-<a href="<?=ROOT_PATH?>article_add" class="btn btn-secondary">Ajouter un article<a>
+  <?php endforeach ?>
   </tbody>
 </table>
 <?php
-$title = "Administration";
+$title = "Administration des articles";
 $content = ob_get_clean();
 include('includes/template.php');
 ?>

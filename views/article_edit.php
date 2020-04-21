@@ -1,6 +1,7 @@
 <?php
 ob_start()
 ?>
+
 <form enctype="multipart/form-data" method="POST">
     <div class="form-group">
         <label for="idid">Identifiant</label>
@@ -22,7 +23,7 @@ ob_start()
         </div>
         <select class="custom-select" id="inputGroupSelect01" name="consoleID">
             <?php foreach($consoles as $console):?>
-            <option value=<?=$console['ID']?>><?=$console['nom']?></option>
+            <option value=<?=$console['ID']?> <?php if($console['ID'] == $article['consoleID']){echo 'selected';} ?>> <?=$console['nom']?> </option>
             <?php endforeach?>
         </select>
     </div>
@@ -33,7 +34,7 @@ ob_start()
         </div>
         <select class="custom-select" id="inputGroupSelect01" name="genreID">
             <?php foreach($genres as $genre):?>
-            <option value=<?=$genre['ID']?>><?=$genre['nom']?></option>
+            <option value=<?=$genre['ID']?> <?php if($genre['ID'] == $article['genreID']){echo 'selected';} ?>><?=$genre['nom']?></option>
             <?php endforeach?>
         </select>
     </div>
@@ -44,7 +45,7 @@ ob_start()
         </div>
         <select class="custom-select" id="inputGroupSelect01" name="limite_ageID">
             <?php foreach($limite_ages as $limite_age):?>
-            <option value=<?=$limite_age['ID']?>><?=$limite_age['nom']?></option>
+            <option value=<?=$limite_age['ID']?> <?php if($limite_age['ID'] == $article['limite_ageID']){echo 'selected';} ?>><?=$limite_age['nom']?></option>
             <?php endforeach?>
         </select>
     </div>
@@ -55,7 +56,7 @@ ob_start()
         </div>
         <select class="custom-select" id="inputGroupSelect01" name="multijoueurID">
             <?php foreach($multijoueurs as $multijoueur):?>
-            <option value=<?=$multijoueur['ID']?>><?=$multijoueur['nom']?></option>
+            <option value=<?=$multijoueur['ID']?> <?php if($multijoueur['ID'] == $article['multijoueurID']){echo 'selected';} ?>><?=$multijoueur['nom']?></option>
             <?php endforeach?>
         </select>
     </div>

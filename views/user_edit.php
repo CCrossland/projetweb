@@ -16,28 +16,13 @@ ob_start()
     </div>
     <div class="form-group">
         <label for="idmdp">Password</label>
-        <input type="password" class="form-control" id="idpassword" name="password" value="<?= $user['password']?>">
+        <input type="password" class="form-control" id="idpassword" name="password">
     </div>
     <div class="form-group">
         <label for="idconfirmpassword">Confirm password</label>
         <input type="password" class="form-control" id="idconfirmpassword" name="confirmpassword">
     </div>
-    <div class="form-group">
-        <label for="idrue">Rue</label>
-        <input type="text" class="form-control" id="idrue" name="rue" value="<?= $user['rue']?>">
-    </div>
-    <div class="form-group">
-        <label for="idnumero">Numéro</label>
-        <input type="text" class="form-control" id="idnumero" name="numero" value="<?= $user['numero']?>">
-    </div>
-    <div class="form-group">
-        <label for="idcp">Code Postal</label>
-        <input type="text" class="form-control" id="idcp" name="cp" value="<?= $user['cp']?>">
-    </div>
-    <div class="form-group">
-        <label for="idlocalite">Localité</label>
-        <input type="text" class="form-control" id="idlocalite" name="localite" value="<?= $user['localite']?>">
-    </div>
+    
     <button type="submit" class="btn btn-primary">Envoyer</button>
 </form>
 <?php

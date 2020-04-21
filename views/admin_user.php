@@ -18,7 +18,7 @@ ob_start();
       <td><?= $user['login'] ?></td>
       <td><?= $user['mail'] ?></td>
       <td>
-          <a href="<?=ROOT_PATH?>user/<?= $user['login']?>" class="btn btn-primary">Voir<a>
+          <a href="<?=ROOT_PATH?>user/<?= $user['login']?>" class="btn btn-primary">Voir</a>
           <a href="<?=ROOT_PATH?>user/<?= $user['login']?>/edit" class="btn btn-warning">Editer</a>
           
           <?php if($_SESSION['id'] != $user['ID']):?>

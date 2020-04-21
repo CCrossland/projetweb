@@ -2,7 +2,9 @@
 ob_start();
 ?>
 
-<h3>Commande effectuée :</h3>
+
+<br>
+<h4>Vous pouvez à présent télécharger vos jeux ici ou sur <a href="<?=ROOT_PATH?>user/<?=$user['nom']?>/commandes">votre historique d'achat</a></h4> 
 <table class="table">
   <thead>
     <tr>
@@ -16,20 +18,22 @@ ob_start();
       <tr>
         <th scope="row"><?= $article['nom'] ?></th>
         <td><?= $article['prix'] ?></td>
-        <td><img src="<?= ROOT_PATH.$article['image'] ?>"width="100px" height="100px"></td>
+        <td><img src="<?= ROOT_PATH.$article['image'] ?>"width="100px" height="120px"></td>
         <td>
-          <a href="<?=ROOT_PATH?>article/<?= $article['nom']?>" class="btn btn-primary">Voir</a>
+          <a href="<?=ROOT_PATH?>article/<?= $article['nom']?>" class="btn btn-primary">Détails</a>
+        </td>
+        <td>
+          <button href="" class="btn btn-primary">Télécharger</button>
         </td>
       </tr>
     <?php endforeach ?>
 
     <td set='0.2'>Total : <?=$total?> €</td>
   </tbody>
-
 </table>
 
 <?php
-  $title = "Commande";
+  $title = "Votre commande a été effectuée!";
   $content = ob_get_clean();
   include('includes/template.php');
 ?>
