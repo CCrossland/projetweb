@@ -2,6 +2,20 @@
 
 require_once 'models/db.php';
 
+function getAllBooks()
+{
+    $reponse = getDB()->query('SELECT u.login AS login, c.ID AS commandeID, c.total AS total, c.date AS commandeDate, COUNT(cp.ID) as countProduit
+    FROM utilisateur AS u
+    JOIN commande AS c
+    ON u.ID = c.utilisateurID
+    JOIN commande_produit AS cp
+    ON cp.commandeID = c.ID
+    GROUP BY c.ID');
+    $commandes = $reponse->fetchAll();
+    $reponse->closeCursor();
+    return $commandes;
+}
+
 function getAllCommandeByUserID($id)
 {
     $reponse = getDB()->prepare('SELECT * FROM commande WHERE utilisateurID = :id ORDER BY ID ASC');

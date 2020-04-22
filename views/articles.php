@@ -13,8 +13,8 @@ ob_start();
 <div class="card-deck">
   <div class="row">
     <?php foreach ($articles as $article) : ?>
-      <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-        <div class="card" style="width: 91%;">
+      <div  id="<?= $article['ID'] ?>" class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+        <div class="card border-light" style="width: 91%;">
           <img class="card-img-top" src="<?= ROOT_PATH . $article['image'] ?>" width="300" height="350" alt="Card image cap">
 
           <div class="card-body">

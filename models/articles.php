@@ -3,15 +3,7 @@ require_once 'models/db.php';
 
 function getAllFromArticles()
 {
-    $reponse = getDB()->query('SELECT p.ID AS ID, p.nom AS nom, prix, consoleID, genreID, limite_ageID, multijoueurID, image, description, g.nom AS genreNom, c.nom AS consoleNom FROM produit AS p JOIN genre AS g ON p.genreID = g.ID JOIN console AS c ON p.consoleID = c.ID WHERE actif = 1');
-    $articles = $reponse->fetchAll();
-    $reponse->closeCursor();
-    return $articles;
-}
-
-function getAllAndUnactiveFromArticles()
-{
-    $reponse = getDB()->query('SELECT * FROM produit');
+    $reponse = getDB()->query('SELECT p.ID AS ID, p.nom AS nom, prix, consoleID, genreID, limite_ageID, multijoueurID, image, description, g.nom AS genreNom, c.nom AS consoleNom, m.nom as multijoueur, la.nom AS limiteAge FROM produit AS p JOIN genre AS g ON p.genreID = g.ID JOIN console AS c ON p.consoleID = c.ID JOIN limite_age AS la ON la.ID = p.limite_ageID JOIN multijoueur AS m ON m.ID = p.multijoueurID WHERE actif = 1');
     $articles = $reponse->fetchAll();
     $reponse->closeCursor();
     return $articles;
@@ -29,7 +21,7 @@ function getJeuByNom($nom)
 
 function getJeuById($id)
 {
-    $reponse = getDB()->prepare('SELECT * FROM Produit WHERE ID = :id AND actif = 1');
+    $reponse = getDB()->prepare('SELECT p.ID AS ID, p.nom AS nom, prix, consoleID, genreID, limite_ageID, multijoueurID, image, description, g.nom AS genreNom, c.nom AS consoleNom, m.nom as multijoueur, la.nom AS limiteAge FROM produit AS p JOIN genre AS g ON p.genreID = g.ID JOIN console AS c ON p.consoleID = c.ID JOIN limite_age AS la ON la.ID = p.limite_ageID JOIN multijoueur AS m ON m.ID = p.multijoueurID WHERE p.ID = :id AND actif = 1');
     $reponse->execute([':id' => $id]);
     $article = $reponse->fetch();
     $reponse->closeCursor(); 

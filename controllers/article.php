@@ -17,8 +17,6 @@ if (!REQ_TYPE_ID) {
     {
         array_push($consoles, array('ID' =>  $consoleTemp['ID'], 'nom' => $consoleTemp['nom'], 'direction' => $consoleTemp['nom'], 'active' => ''));
     }
-
-    $genres = getAllFromGenres();
     include 'views/articles.php';
 
 } else if (in_array(REQ_TYPE_ID, $consolesNoms)) {
@@ -36,7 +34,6 @@ if (!REQ_TYPE_ID) {
         }
     }
 
-    $genres = getAllFromGenres();
     include 'views/articles.php';
 
 } else {

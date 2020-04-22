@@ -7,5 +7,5 @@ $_SESSION['message']='Votre article a bien été ajouté';
 
 $_SESSION['articleBooked'] += 1;
 
-header('location: '.ROOT_PATH.'article');
+header('location: '.ROOT_PATH.'article#'.REQ_TYPE_ID);
 ?>

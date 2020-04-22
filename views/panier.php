@@ -31,7 +31,7 @@ ob_start();
 </table>
 
 <?php if(!empty($_SESSION['panier'])):?>
-  <a href="<?=ROOT_PATH?>commande" class="btn btn-warning">Passer Commande</a>
+  <a href="<?=ROOT_PATH?>commande" class="btn btn-success">Passer Commande</a>
 <?php endif?>
 
 <?php
