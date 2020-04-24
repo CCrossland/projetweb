@@ -7,3 +7,5 @@ $BDD_LOGIN, $BDD_MDP, ROOT_PATH dans le fichier index.php &
 $bdd dans le ficher models/db.php
 
 dump accessible à la racine du répertoire.
+
+Compte administrateur: login: admin / mdp: admin
