@@ -1,6 +1,13 @@
 <?php ob_start() ?>
 
-<img style="margin-top: 25px" src="<?= ROOT_PATH . $article['image'] ?>" width="300" height="350">
+<img style="margin-top: 25px" src="<?= ROOT_PATH . $article['image'] ?>" width="300" height="400">
+
+
+<?php if(!empty($article['video'])) : ?>
+<iframe frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="margin-top: 25px; float:right" width="70%" height="400"
+src=<?= $article['video']?>>
+</iframe>
+<?php endif ?>
 
 <dl class="row" style="margin-top: 35px">
     <dt class="col-sm-2">Console</dt> 

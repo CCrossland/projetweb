@@ -24,6 +24,7 @@ if(!empty($_POST)) {
                 $target_file = $target_dir . basename($_FILES["image"]["name"]);
                 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
                 
+                //Check if image file is a actual image or fake image
                 if (isset($_FILES["image"])) {
                     $check = getimagesize($_FILES["image"]["tmp_name"]);
                     if ($check !== false) {
@@ -34,28 +35,33 @@ if(!empty($_POST)) {
                     }
                 }
 
+                // Check if file already exists
                 if (file_exists($target_file)) {
                     $imagePath = $target_file;
                     $uploadOk = 0;
                     $fileOk = 1;
                 }
 
-                if ($_FILES["image"]["size"] > 500000) {
+                //vérifie la taille du fichier
+                if ($_FILES["image"]["size"] > 5000000) {
                     $_SESSION['error'] = "Le fichier de l'image est trop gros.";
                     $uploadOk = 0;
                 }
 
+                // Allow certain file formats
                 if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
                     && $imageFileType != "gif") {
                     $_SESSION['error'] = "Seuls les formats JPG, JPEG, PNG et GIF sont acceptés.";
                     $uploadOk = 0;
                 }
 
+                // Check if $uploadOk is set to 0 by an error
                 if ($uploadOk == 0) {
                     if($fileOk != 1){
                         $imagePath = $target_dir."no_image.jpg";
                     }
 
+                    // if everything is ok, try to upload file
                 } else {
                     if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
                         $imagePath = $target_file;
@@ -69,7 +75,7 @@ if(!empty($_POST)) {
             $imagePath = "public/images/no_image.jpg";
             }
 
-            $article = createJeu($_POST['nom'], $_POST['prix'], $_POST['consoleID'], $_POST['genreID'], $_POST['limite_ageID'], $_POST['multijoueurID'], $imagePath, $_POST['description']);
+            $article = createJeu($_POST['nom'], $_POST['prix'], $_POST['consoleID'], $_POST['genreID'], $_POST['limite_ageID'], $_POST['multijoueurID'], $imagePath, $_POST['description'], str_replace("watch?v=", "embed/", $_POST['video']));
             $_SESSION['message'] = "Le jeu ".$_POST['nom']." a été ajouté avec succés";
             header('Location: '.ROOT_PATH.'admin_article');
             exit();

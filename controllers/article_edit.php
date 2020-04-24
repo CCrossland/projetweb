@@ -91,7 +91,7 @@ if (!empty($_POST) && !empty($_POST['nom']) && !empty($_POST['prix'])){
         $imagePath = "public/images/no_image.jpg";
         }
 
-    updateJeu($article['ID'], $_POST['nom'], $_POST['prix'], $_POST['consoleID'], $_POST['genreID'], $_POST['limite_ageID'], $_POST['multijoueurID'], $imagePath, $_POST['description']);
+    updateJeu($article['ID'], $_POST['nom'], $_POST['prix'], $_POST['consoleID'], $_POST['genreID'], $_POST['limite_ageID'], $_POST['multijoueurID'], $imagePath, $_POST['description'],  str_replace("watch?v=", "embed/", $_POST['video']));
     $_SESSION['message'] = 'L\'article '.$article['nom'].' a bien été mis à jour';
     header("Location: ".ROOT_PATH."admin_article");
     exit();

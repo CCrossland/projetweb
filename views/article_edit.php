@@ -72,6 +72,11 @@ ob_start()
     </div>
 
     <div class="form-group">
+        <label for="videolink">Lien vidéo (Youtube recommandé)</label>
+        <input type="text" class="form-control" id="videolink" name="video" value="<?= $article['video']?>">
+    </div>
+
+    <div class="form-group">
         <label for="iddescription">Description</label>
         <input type="text" class="form-control" id="iddescription" name="description" value="<?= $article['description']?>">
     </div>

@@ -3,7 +3,7 @@ require_once 'models/db.php';
 
 function getAllFromArticles()
 {
-    $reponse = getDB()->query('SELECT p.ID AS ID, p.nom AS nom, prix, consoleID, genreID, limite_ageID, multijoueurID, image, description, g.nom AS genreNom, c.nom AS consoleNom, m.nom as multijoueur, la.nom AS limiteAge FROM produit AS p JOIN genre AS g ON p.genreID = g.ID JOIN console AS c ON p.consoleID = c.ID JOIN limite_age AS la ON la.ID = p.limite_ageID JOIN multijoueur AS m ON m.ID = p.multijoueurID WHERE actif = 1');
+    $reponse = getDB()->query('SELECT p.ID AS ID, p.nom AS nom, prix, consoleID, genreID, limite_ageID, multijoueurID, video, image, description, g.nom AS genreNom, c.nom AS consoleNom, m.nom as multijoueur, la.nom AS limiteAge FROM produit AS p JOIN genre AS g ON p.genreID = g.ID JOIN console AS c ON p.consoleID = c.ID JOIN limite_age AS la ON la.ID = p.limite_ageID JOIN multijoueur AS m ON m.ID = p.multijoueurID WHERE actif = 1 ORDER BY p.ID Desc');
     $articles = $reponse->fetchAll();
     $reponse->closeCursor();
     return $articles;
@@ -21,18 +21,17 @@ function getJeuByNom($nom)
 
 function getJeuById($id)
 {
-    $reponse = getDB()->prepare('SELECT p.ID AS ID, p.nom AS nom, prix, consoleID, genreID, limite_ageID, multijoueurID, image, description, g.nom AS genreNom, c.nom AS consoleNom, m.nom as multijoueur, la.nom AS limiteAge FROM produit AS p JOIN genre AS g ON p.genreID = g.ID JOIN console AS c ON p.consoleID = c.ID JOIN limite_age AS la ON la.ID = p.limite_ageID JOIN multijoueur AS m ON m.ID = p.multijoueurID WHERE p.ID = :id AND actif = 1');
+    $reponse = getDB()->prepare('SELECT p.ID AS ID, p.nom AS nom, prix, consoleID, genreID, limite_ageID, multijoueurID, image, video, description, g.nom AS genreNom, c.nom AS consoleNom, m.nom as multijoueur, la.nom AS limiteAge FROM produit AS p JOIN genre AS g ON p.genreID = g.ID JOIN console AS c ON p.consoleID = c.ID JOIN limite_age AS la ON la.ID = p.limite_ageID JOIN multijoueur AS m ON m.ID = p.multijoueurID WHERE p.ID = :id AND actif = 1');
     $reponse->execute([':id' => $id]);
     $article = $reponse->fetch();
     $reponse->closeCursor(); 
     return $article;
 }
 
-function updateJeu($id, $nom, $prix, $consoleID = "", $genreID = "", $limite_ageID = "", $multijoueurID = "", $image = "", $description = "")
+function updateJeu($id, $nom, $prix, $consoleID = "", $genreID = "", $limite_ageID = "", $multijoueurID = "", $image = "", $description = "", $video= "")
 {
-    $article = getJeuById($id);
-    $reponse = getDB()->prepare('UPDATE Produit SET nom = :nom, prix = :prix, consoleID = :consoleID, genreID = :genreID, limite_ageID = :limite_ageID, multijoueurID = :multijoueurID, image = :image, description = :description WHERE ID = :id');
-    $reponse->execute([':id' => $id, ':nom' => str_replace(" ", "_", $nom), ':prix' => $prix, ':consoleID' => $consoleID, ':genreID' => $genreID, ':limite_ageID' => $limite_ageID, ':multijoueurID' => $multijoueurID, ':image' => $image, ':description' => $description]);
+    $reponse = getDB()->prepare('UPDATE Produit SET nom = :nom, prix = :prix, consoleID = :consoleID, genreID = :genreID, limite_ageID = :limite_ageID, multijoueurID = :multijoueurID, image = :image, video = :video, description = :description WHERE ID = :id');
+    $reponse->execute([':id' => $id, ':nom' => str_replace(" ", "_", $nom), ':prix' => $prix, ':consoleID' => $consoleID, ':genreID' => $genreID, ':limite_ageID' => $limite_ageID, ':multijoueurID' => $multijoueurID, ':image' => $image, ':description' => $description, ':video' => $video]);
     $reponse->closeCursor(); 
 }
 
@@ -44,10 +43,10 @@ function checkJeuDoesntExist($nom)
     }
 }
 
-function createJeu($nom, $prix, $consoleID = "", $genreID = "", $limite_ageID = "", $multijoueurID = "", $image = "", $description = "")
+function createJeu($nom, $prix, $consoleID = "", $genreID = "", $limite_ageID = "", $multijoueurID = "", $image = "", $description = "", $video = "")
 {
-    $reponse = getDB()->prepare('INSERT INTO Produit SET nom = :nom, prix = :prix, consoleID = :consoleID, genreID = :genreID, limite_ageID = :limite_ageID, multijoueurID = :multijoueurID, image = :image, description = :description');
-    $reponse->execute([':nom' => str_replace(" ", "_", $nom), ':prix' => $prix, ':consoleID' => $consoleID, ':genreID' => $genreID, ':limite_ageID' => $limite_ageID, ':multijoueurID' => $multijoueurID, ':image' => $image, ':description' => $description]);
+    $reponse = getDB()->prepare('INSERT INTO Produit SET nom = :nom, prix = :prix, consoleID = :consoleID, genreID = :genreID, limite_ageID = :limite_ageID, multijoueurID = :multijoueurID, video = :video, image = :image, description = :description');
+    $reponse->execute([':nom' => str_replace(" ", "_", $nom), ':prix' => $prix, ':consoleID' => $consoleID, ':genreID' => $genreID, ':limite_ageID' => $limite_ageID, ':multijoueurID' => $multijoueurID,':video' => $video, ':image' => $image, ':description' => $description]);
     $reponse->closeCursor(); 
 }
 
