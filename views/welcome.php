@@ -4,6 +4,7 @@ ob_start();
 
 <!-- <div style="background-image:url(<?= ROOT_PATH ."public/images/band.jpg" ?>);margin-left: auto; margin-right: auto; margin-top: 20px; width: 92%; height:350;"> -->
 
+
 <div style="height: 360px; margin-top: 40px;">
 
     <div style="position: relative; margin-left: auto; margin-right: auto; margin-top: 20px; width: 100%;">

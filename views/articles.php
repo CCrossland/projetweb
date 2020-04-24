@@ -26,9 +26,9 @@ ob_start();
           </div>
 
           <div class="card-footer">
-          <?php if ($_SESSION) : ?>
+          
               <a class="btn btn-warning" href="<?= ROOT_PATH ?>panier/<?= $article['ID'] ?>/add">Ajouter au panier</a>
-            <?php endif ?>
+          
           </div>
 
         </div>

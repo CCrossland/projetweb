@@ -4,7 +4,7 @@ require 'models/articles.php';
 require 'models/users.php';
 require 'models/book.php';
 
-if(empty($_SESSION['id'])){
+if(empty($_SESSION['panier'])){
     header("Location: ".ROOT_PATH);
     exit();
 }

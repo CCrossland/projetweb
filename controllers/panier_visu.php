@@ -3,10 +3,6 @@ require 'models/articles.php';
 require 'models/users.php';
 require 'models/book.php';
 
-if(empty($_SESSION['id'])){
-    header("Location: ".ROOT_PATH);
-    exit();
-}
 
 $articles = array();
 $total=0;

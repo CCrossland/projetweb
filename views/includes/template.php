@@ -56,31 +56,30 @@ require_once 'models/users.php';
                     <li class="nav-item active"><a class="nav-link" href="<?=ROOT_PATH?>admin_commande">Commandes effectuées</a></li>
                 <?php endif?>
                 </ul>
-                <?php if(empty($_SESSION['id'])):?>
 
+                <?php if(!empty($_SESSION['panier'])):?>
+                <div class="dropdown">
+                    <button id="myBtn" class="btn btn-outline-success my-2 my-sm-0" class="dropbtn" id="panier">
+                     <i class="fa fa-shopping-cart" style="margin-right: 7px; font-size:20px"></i> (<?= $_SESSION['articleBooked']?>)
+                    </button>
 
-                    <a href="<?=ROOT_PATH?>login" type="button" class="btn btn-primary">Se connecter</a>
-                    
-                    <a href="<?=ROOT_PATH?>signup" type="button" class="btn btn-outline-primary">Créer un compte</a>
-
-                <?php else:?>
-
-                    
-
-                    <div class="dropdown">
-                        <button id="myBtn" class="btn btn-outline-success my-2 my-sm-0" class="dropbtn" id="panier">
-                        <i class="fa fa-shopping-cart" style="margin-right: 7px; font-size:20px"></i> (<?= $_SESSION['articleBooked']?>)
-                        </button>
-                        <div id="monPanier" class="dropdown-content">
-                            <iframe style="width:500px;height:500px" src="<?=ROOT_PATH?>panier_visu"></iframe>
-                            <?php if (!empty($_SESSION['panier'])) : ?>
-                                <a href="<?= ROOT_PATH ?>panier" class="btn btn-success">Vers Panier</a>
-                            <?php endif ?>
-                        </div>
+                    <div id="monPanier" class="dropdown-content">
+                         <iframe style="width:500px;height:500px" src="<?=ROOT_PATH?>panier_visu"></iframe>
+                        <?php if (!empty($_SESSION['panier'])) : ?>
+                            <a href="<?= ROOT_PATH ?>panier" class="btn btn-success">Vers Panier</a>
+                         <?php endif ?>
                     </div>
+                <?php endif ?>
+                </div>
+
+                <?php if(empty($_SESSION['id'])):?>
+                    <a href="<?=ROOT_PATH?>login" type="button" class="btn btn-primary">Se connecter</a>
+                    <a href="<?=ROOT_PATH?>signup" type="button" class="btn btn-outline-primary">Créer un compte</a>
+                <?php else:?>
                     <a href="<?=ROOT_PATH?>user" class="btn btn-primary">Mon compte</a>
                     <a href="<?=ROOT_PATH?>logout" class="btn btn-outline-danger">Se déconnecter</a>
                 <?php endif?>
+
             </div>
         </nav>
         <br>

@@ -30,9 +30,12 @@ ob_start();
 
 </table>
 
-<?php if(!empty($_SESSION['panier'])):?>
+<?php if(!empty($_SESSION['id'])):?>
   <a href="<?=ROOT_PATH?>commande" class="btn btn-success">Passer Commande</a>
-<?php endif?>
+<?php else :?>
+  <p>Vous devez être connecté pour passer commande  &nbsp &rarr; &nbsp &nbsp &nbsp<a href="<?=ROOT_PATH?>login" class="btn btn-primary"> Se connecter </a></p>
+  
+<?php endif ?>
 
 <?php
   $title = "Panier";

@@ -19,9 +19,12 @@ if(!empty($_POST)) {
             $user = getUserByLogin($_POST['login']);
 
             $_SESSION['id'] = $user['ID'];
-            $_SESSION['panier'] = array();
+            if (!empty($_SESSION['panier'])){
+            }else{
+                $_SESSION['panier'] = array(); 
+                $_SESSION['articleBooked'] = 0;
+            }
             $_SESSION['message'] = "Bienvenue ".$user['login'];
-            $_SESSION['articleBooked'] = 0;
             header("Location: ".ROOT_PATH."index");
             exit();
         }
