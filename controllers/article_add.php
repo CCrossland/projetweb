@@ -16,7 +16,7 @@ $imagePath="";
 if(!empty($_POST)) {
     if(!empty($_POST['nom']) && !empty($_POST['prix']) && !empty($_POST['consoleID']) && !empty($_POST['genreID']) && !empty($_POST['limite_ageID']) && !empty($_POST['multijoueurID'])){
 
-        if(checkJeuExists($_POST['nom']) == true)
+        if(checkJeuDoesntExist($_POST['nom']) == true)
         {
             if (!empty($_FILES['image']['name'])) {
 
@@ -64,10 +64,10 @@ if(!empty($_POST)) {
                         $imagePath = $target_dir."no_image.jpg";
                     }
                 }
-        }else{
+            }else{
             $_SESSION['error'] = "Pas d'image sélectionnée, l'image par défaut est utilisée";
             $imagePath = "public/images/no_image.jpg";
-        }
+            }
 
             $article = createJeu($_POST['nom'], $_POST['prix'], $_POST['consoleID'], $_POST['genreID'], $_POST['limite_ageID'], $_POST['multijoueurID'], $imagePath, $_POST['description']);
             $_SESSION['message'] = "Le jeu ".$_POST['nom']." a été ajouté avec succés";

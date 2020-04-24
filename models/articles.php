@@ -36,7 +36,7 @@ function updateJeu($id, $nom, $prix, $consoleID = "", $genreID = "", $limite_age
     $reponse->closeCursor(); 
 }
 
-function checkJeuExists($nom)
+function checkJeuDoesntExist($nom)
 {
     $article = getJeuByNom($nom);
     if (!$article) {

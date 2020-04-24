@@ -70,10 +70,19 @@ function createCommandeProduit($idCommande, $idProduit, $prix)
 function getProduitInfo($userid, $cpid, $productid)
 {
     $reponse = getDB()->prepare('SELECT p.ID AS produitID, p.nom AS produitNom, p.image AS produitImage, p.description AS produitDescription, cp.commandeID AS commandeID, cp.prix AS prix, c.utilisateurID AS userID, c.statutCommandeID AS statut, c.total AS total FROM produit AS p JOIN commande_produit AS cp ON p.ID = cp.produitID JOIN commande AS c ON cp.commandeID = c.ID WHERE c.utilisateurID = :userid AND cp.ID = :cpid AND p.ID = :productid');
-    $reponse->execute([':userid' => $userid, ':cpid' => $cpid, ':productid' => $productid,]);
+    $reponse->execute([':userid' => $userid, ':cpid' => $cpid, ':productid' => $productid]);
     $article = $reponse->fetch();
     $reponse->closeCursor();
     return $article;
+}
+
+function getCommandeDetailsByCommandeID($id)
+{
+    $reponse = getDB()->prepare('SELECT c.date AS dateCommande, c.total AS total, u.login AS userLogin, cp.prix AS prix, p.nom AS produitNom, p.image AS image FROM commande AS c JOIN commande_produit AS cp ON cp.commandeID = c.ID JOIN produit AS p ON p.ID = cp.produitID JOIN utilisateur AS u ON u.ID = c.utilisateurID WHERE c.ID = :id');
+    $reponse->execute([':id' => $id]);
+    $commandes = $reponse->fetchAll();
+    $reponse->closeCursor();
+    return $commandes;
 }
 
 ?>

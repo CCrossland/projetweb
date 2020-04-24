@@ -53,7 +53,7 @@ require_once 'models/users.php';
                     <li class="nav-item active"><a class="nav-link" href="<?=ROOT_PATH?>admin_stats">Statistiques</a></li>
                 <?php endif?>
                 <?php if (!empty($_SESSION['id']) && checkUserRole($_SESSION['id']) <= 2):?>
-                    <li class="nav-item active"><a class="nav-link" href="<?=ROOT_PATH?>admin_books">Commandes effectuées</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="<?=ROOT_PATH?>admin_commande">Commandes effectuées</a></li>
                 <?php endif?>
                 </ul>
                 <?php if(empty($_SESSION['id'])):?>
@@ -101,6 +101,9 @@ if(!empty($_SESSION['error'])){
             <?php echo $content; ?>
         </div>
         </main>
+
+        <br>
+
         <footer class="footer bg-dark text-white-50">
             <div class="container">
                 <span class="text-muted">&copy; Jeu Vidéal</span>

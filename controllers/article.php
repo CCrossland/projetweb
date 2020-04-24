@@ -38,9 +38,19 @@ if (!REQ_TYPE_ID) {
 
 } else {
     $article = getJeuByNom(REQ_TYPE_ID);
-    $article['nom'] = str_replace("_", " ", $article['nom']);
 
-    include 'views/article.php';
+    if(!empty($article)){
+        $article['nom'] = str_replace("_", " ", $article['nom']);
+        include 'views/article.php';
+    }else{
+        http_response_code(404);
+        include 'views/404.php';
+        exit();
+    }
+
+    
+
+    
 }
 
 ?>

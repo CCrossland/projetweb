@@ -18,7 +18,7 @@ ob_start();
       <tr>
         <th scope="row"><?= $article['nom'] ?></th>
         <td><?= $article['prix'] ?></td>
-        <td><img src="<?= ROOT_PATH.$article['image'] ?>"width="100px" height="120px"></td>
+        <td><img src="<?= ROOT_PATH.$article['image'] ?>"width="100px" height="125px"></td>
         <td>
           <a href="<?=ROOT_PATH?>article/<?= $article['nom']?>" class="btn btn-primary">Détails</a>
         </td>
