@@ -13,7 +13,6 @@ if (!REQ_TYPE_ID)
 {
     $commandes = getAllBooks();
     include 'views/admin_commandes.php';
-
 }else{
     $detailsCommande = getCommandeDetailsByCommandeID(REQ_TYPE_ID);
     $userLogin = $detailsCommande[0]['userLogin'];

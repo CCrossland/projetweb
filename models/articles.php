@@ -81,7 +81,7 @@ function getConsoleByID($id)
 
 function getAllProduitByConsoleName($nom)
 {
-    $reponse = getDB()->prepare('SELECT p.ID AS ID, p.nom AS nom, prix, consoleID, genreID, limite_ageID, multijoueurID, image, description, g.nom AS genreNom, c.nom AS consoleNom FROM produit AS p JOIN genre AS g ON p.genreID = g.ID JOIN console AS c ON p.consoleID = c.ID WHERE actif = 1 AND c.nom = :nom');;
+    $reponse = getDB()->prepare('SELECT p.ID AS ID, p.nom AS nom, prix, consoleID, genreID, limite_ageID, multijoueurID, image, description, g.nom AS genreNom, c.nom AS consoleNom FROM produit AS p JOIN genre AS g ON p.genreID = g.ID JOIN console AS c ON p.consoleID = c.ID WHERE actif = 1 AND c.nom = :nom ORDER BY p.ID Desc');;
     $reponse->execute([':nom' => $nom]);
     $article = $reponse->fetchAll();
     $reponse->closeCursor();

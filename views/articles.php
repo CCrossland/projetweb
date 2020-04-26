@@ -17,7 +17,7 @@ ob_start();
         <div class="card border-light" style="width: 91%;">
           <img class="card-img-top" src="<?= ROOT_PATH . $article['image'] ?>" width="300" height="350" alt="Card image cap">
 
-          <div class="card-body">
+          <div class="card-body" style="height: 200px">
             <h3 class="card-title"><?= str_replace('_', ' ', $article['nom']) ?></h3>
             <h5 class="card-subtitle"><?= $article['genreNom'] ?> - <?= $article['consoleNom'] ?></h5>
             <br/>

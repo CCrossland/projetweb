@@ -2,7 +2,7 @@
 ob_start();
 ?>
 <br>
-<h4>Commande du <?= $date ?> par <?= $userLogin ?></h4> 
+<h4>Commande du <?= $detailsCommande[0]['dateCommande'] ?> par <?= $detailsCommande[0]['userLogin'] ?></h4> 
 
 <table class="table">
   <thead>
@@ -15,7 +15,7 @@ ob_start();
   <tbody>
     <?php foreach($detailsCommande as $details):?>
       <tr>
-        <th scope="row"><?= $details['produitNom'] ?></th>
+        <th scope="row"><?= str_replace("_", " ", $details['produitNom']) ?></th>
         <td><?= $details['prix'] ?></td>
         <td><img src="<?= ROOT_PATH.$details['image'] ?>"width="100px" height="120px"></td>
         <td>
@@ -24,7 +24,7 @@ ob_start();
       </tr>
     <?php endforeach ?>
 
-    <td set='0.2'>Total : <?=$total?> €</td>
+    <td set='0.2'>Total : <?= $detailsCommande[0]['total'] ?> €</td>
   </tbody>
 </table>
 
