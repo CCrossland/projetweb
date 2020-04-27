@@ -33,7 +33,7 @@ ob_start();
 <?php if(!empty($_SESSION['id'])):?>
   <a href="<?=ROOT_PATH?>commande" class="btn btn-success">Passer Commande</a>
 <?php else :?>
-  <p>Vous devez être connecté pour passer commande  &nbsp &rarr; &nbsp &nbsp &nbsp<a href="<?=ROOT_PATH?>login" class="btn btn-primary"> Se connecter </a></p>
+  <p>Vous devez être connecté pour passer commande  &nbsp &rarr; &nbsp &nbsp &nbsp<a href="<?=ROOT_PATH?>login" class="btn btn-success"> Se connecter </a> &nbsp ou &nbsp <a href="<?=ROOT_PATH?>signup" class="btn btn-primary"> Créer un compte </a></p>
   
 <?php endif ?>
 

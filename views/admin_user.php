@@ -19,7 +19,7 @@ ob_start();
       <td><?= $user['mail'] ?></td>
       <td>
           <a href="<?=ROOT_PATH?>user/<?= $user['login']?>" class="btn btn-primary">Voir</a>
-          <a href="<?=ROOT_PATH?>user/<?= $user['login']?>/edit" class="btn btn-warning">Editer</a>
+          <a href="<?=ROOT_PATH?>admin_user/<?= $user['login']?>/edit" class="btn btn-warning">Editer</a>
           
           <?php if($_SESSION['id'] != $user['ID']):?>
             <!-- Button trigger delete (fonctionnement avec dataTarget modal) -->
@@ -44,7 +44,7 @@ ob_start();
 
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                    <a href="<?= ROOT_PATH ?>user/<?= $user['login']?>/delete" class="btn btn-danger">Supprimer<a>
+                    <a href="<?= ROOT_PATH ?>admin_user/<?= $user['login']?>/delete" class="btn btn-danger">Supprimer<a>
                   </div>
 
                 </div>

@@ -3,7 +3,7 @@ ob_start();
 ?>
 
 <br>
-<a href="<?=ROOT_PATH?>article_add" class="btn btn-primary btn-lg"><h4>Ajouter un article</h4><a>
+<a href="<?=ROOT_PATH?>admin_article/add" class="btn btn-primary btn-lg"><h4>Ajouter un article</h4><a>
 <br><p> </p><br>
 <table class="table">
   <thead>
@@ -23,7 +23,7 @@ ob_start();
       <td><img src="<?= ROOT_PATH.$article['image'] ?>"width="100px" height="120px"></td>
       <td>
           <a href="<?=ROOT_PATH?>article/<?= $article['nom']?>" class="btn btn-primary">Voir</a>
-          <a href="<?=ROOT_PATH?>article/<?= $article['nom']?>/edit" class="btn btn-warning">Editer</a>
+          <a href="<?=ROOT_PATH?>admin_article/<?= $article['nom']?>/edit" class="btn btn-warning">Editer</a>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal<?= $article['nom']?>">
               Supprimer

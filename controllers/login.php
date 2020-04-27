@@ -25,13 +25,16 @@ if(!empty($_POST)) {
             //Authentification OK
             $_SESSION['id'] = $user['ID'];
             if (!empty($_SESSION['panier'])){
+                $_SESSION['message'] = "Vous vous êtes authentifié avec succès!";
+                header("Location: ".ROOT_PATH."panier");
             }else{
                 $_SESSION['panier'] = array(); 
                 $_SESSION['articleBooked'] = 0;
+
+                $_SESSION['message'] = "Bienvenue ".$user['login'];
+                header("Location: ".ROOT_PATH);
             }
-            $_SESSION['message'] = "Bienvenue ".$user['login'];
             
-            header("Location: ".ROOT_PATH);
             exit();
         }
         else

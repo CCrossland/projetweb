@@ -20,12 +20,12 @@ if(!empty($_POST)) {
 
             $_SESSION['id'] = $user['ID'];
             if (!empty($_SESSION['panier'])){
+                $_SESSION['message'] = "Votre compte est créé, vous pouvez finaliser votre commande!";
+                header("Location: ".ROOT_PATH."panier");
             }else{
                 $_SESSION['panier'] = array(); 
                 $_SESSION['articleBooked'] = 0;
             }
-            $_SESSION['message'] = "Bienvenue ".$user['login'];
-            header("Location: ".ROOT_PATH."index");
             exit();
         }
     }

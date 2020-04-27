@@ -16,16 +16,16 @@ require_once 'models/users.php';
         <script src="<?=ROOT_PATH?>public/js/bootstrap.min.js"></script>
 
         <!-- panier -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="<?=ROOT_PATH?>public/css/all.min.css">
+
 
         <!-- canvas -->
         <script src="<?=ROOT_PATH?>public/js/canvasjs.min.js"></script>
         <script src="<?=ROOT_PATH?>public/js/canvasjs.react.js"></script>
 
         <script src="<?=ROOT_PATH?>public/js/regex.js"></script>
+        <script src="<?=ROOT_PATH?>public/js/regexProduit.js"></script>
         <script src="<?=ROOT_PATH?>public/js/panier.js"></script>
-
-
 
         <title><?php echo $title; ?></title>
     </head>
