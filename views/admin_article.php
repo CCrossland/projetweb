@@ -3,7 +3,7 @@ ob_start();
 ?>
 
 <br>
-<a href="<?=ROOT_PATH?>admin_article/add" class="btn btn-primary btn-lg"><h4>Ajouter un article</h4><a>
+<a href="<?=ROOT_PATH?>admin_article_add" class="btn btn-primary btn-lg"><h4>Ajouter un article</h4><a>
 <br><p> </p><br>
 <table class="table">
   <thead>

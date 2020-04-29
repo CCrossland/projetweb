@@ -14,7 +14,6 @@ ob_start();
   <?php foreach ($commandes as $commande) : ?>
 
     <tbody>
-
       <th scope="row">Commande du : <?= $commande['date'] ?></th>
 
         <?php foreach ($articles as $article) : ?>
@@ -26,7 +25,7 @@ ob_start();
               <td><img src="<?= ROOT_PATH . $article['produitImage'] ?>" width="100px" height="120px"></td>
               <td>
                 <a href="<?= ROOT_PATH ?>article/<?= $article['produitNom'] ?>" class="btn btn-primary">Détails</a>
-                <a href="" class="btn btn-primary">Télécharger</a>
+                <a href="<?= ROOT_PATH ?>public/download/jeuAcheté.zip" class="btn btn-primary">Télécharger</a>
               </td>
             </tr>
 

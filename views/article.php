@@ -24,6 +24,7 @@ src=<?= $article['video']?>>
     <dd class="col-sm-10"><?= $article['prix']?> €</dd>
 </dl>
 
+<a href="<?= ROOT_PATH ?>panier/<?= $article['ID'] ?>/add" class="btn btn-success btn-lg">Ajouter au panier</a>
 <a href="<?= ROOT_PATH ?>article#<?= $article['ID'] ?>" class="btn btn-primary btn-lg">Revenir aux articles</a>
 
 <?php

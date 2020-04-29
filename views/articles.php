@@ -4,7 +4,7 @@ ob_start();
 
 <div class="btn-group btn-group-toggle" data-toggle="buttons" style="height: 50px; width: 100%;">
   <?php foreach ($consoles as $console) : ?>
-    <a href="<?= ROOT_PATH ?>article/<?= $console['direction'] ?>" class="btn btn-primary <?= $console['active'] ?>" type="radio"><?= $console['nom'] ?></a>
+    <a href="<?= ROOT_PATH ?>article/<?= $console['direction'] ?>" class="btn btn-primary outline-strong <?= $console['active'] ?>" type="radio"><?= $console['nom'] ?></a>
   <?php endforeach ?>
 </div>
 
@@ -15,7 +15,7 @@ ob_start();
     <?php foreach ($articles as $article) : ?>
       <div  id="<?= $article['ID'] ?>" class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
         <div class="card border-light" style="width: 91%;">
-          <img class="card-img-top" src="<?= ROOT_PATH . $article['image'] ?>" width="300" height="350" alt="Card image cap">
+          <img href="<?= ROOT_PATH ?>article/<?= $article['nom'] ?>" class="card-img-top" src="<?= ROOT_PATH . $article['image'] ?>" width="300" height="350" alt="Card image cap">
 
           <div class="card-body" style="height: 200px">
             <h3 class="card-title"><?= str_replace('_', ' ', $article['nom']) ?></h3>
