@@ -17,5 +17,10 @@ if(!$user){
     include 'views/404.php';
     exit();
 }
+
+$email = $user['mail'];
+$default = "https://blog.ramboll.com/fehmarnbelt/wp-content/themes/ramboll2/images/profile-img.jpg";
+$grav_url = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=310";
+
 include 'views/user.php';
 ?>
