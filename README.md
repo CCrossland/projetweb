@@ -9,3 +9,5 @@ $bdd dans le ficher models/db.php
 dump accessible à la racine du répertoire.
 
 Compte administrateur: login: admin / mdp: admin
+
+Pour afficher correctement les statistiques: passer par l'url de votre hostname (pas localhost/admin_stats mais monprojet.test/admin_stats par exemple)
