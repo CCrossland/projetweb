@@ -1,12 +1,12 @@
 <?php 
 ob_start();
 
-include('includes/scriptstats.php');
+// include('includes/scriptstats.php');
 ?>
 
-<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<div id="chartContainer"></div>
 <br/>
-<div id="chartContainer2" style="height: 370px; width: 100%;"></div>
+<div id="chartContainer2"></div>
 
 <?php
 $title = "Statistiques";

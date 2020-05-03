@@ -101,7 +101,6 @@ else if(!empty($_POST['nom']) || !empty($_POST['prix'])){
     $_SESSION['error'] = "Le nom et le prix sont des champs obligatoire !";
 }
 
-
-include 'views/article_edit.php';
+include 'views/admin_article_edit.php';
 
 ?>

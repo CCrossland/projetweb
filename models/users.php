@@ -51,11 +51,10 @@ function getAllFromUser(){
 function createUser($login, $password, $mail, $nom, $prenom) {
     $reponse = getDB()->prepare('INSERT INTO UTILISATEUR SET login = :login, password = :password, mail = :mail, nom = :nom, prenom = :prenom, roleID = :roleID');
     $reponse->execute([':login' => $login, ':password' => password_hash($password, PASSWORD_DEFAULT), ':mail' => $mail, ':nom' => $nom, ':prenom' => $prenom, ':roleID' => 3]);
-    $reponse->closeCursor(); // Termine le traitement de la requête
+    $reponse->closeCursor();
 }
 
 function deleteUser($login){
-    // $reponse = getDB()->prepare("DELETE FROM UTILISATEUR WHERE login = :login");
     $reponse = getDB()->prepare("UPDATE UTILISATEUR SET actif = 0 WHERE login = :login");
     $reponse->execute([':login' => $login]);
     $reponse->closeCursor();

@@ -23,7 +23,7 @@ ob_start();
           <a href="<?=ROOT_PATH?>article/<?= $article['nom']?>" class="btn btn-primary">Détails</a>
         </td>
         <td>
-          <button href="" class="btn btn-primary">Télécharger</button>
+          <a href="<?= ROOT_PATH ?>public/download/jeuAcheté.zip" class="btn btn-primary">Télécharger</button>
         </td>
       </tr>
     <?php endforeach ?>

@@ -31,7 +31,7 @@ CREATE TABLE `commande` (
   KEY `statutCommandeID` (`statutCommandeID`),
   CONSTRAINT `commande_ibfk_1` FOREIGN KEY (`utilisateurID`) REFERENCES `utilisateur` (`id`),
   CONSTRAINT `commande_ibfk_2` FOREIGN KEY (`statutCommandeID`) REFERENCES `statut_commande` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=latin1;
 
 /*Data for the table `commande` */
 
@@ -55,7 +55,9 @@ insert  into `commande`(`ID`,`utilisateurID`,`statutCommandeID`,`total`,`date`) 
 (56,18,1,59.99,'2020-04-24 12:30:12'),
 (57,18,1,169.97,'2020-04-24 13:49:20'),
 (58,32,1,119.98,'2020-04-24 13:52:43'),
-(59,30,1,59.99,'2020-04-28 16:49:09');
+(59,30,1,59.99,'2020-04-28 16:49:09'),
+(60,18,1,119.98,'2020-04-29 21:22:13'),
+(61,19,1,59.99,'2020-04-29 21:23:29');
 
 /*Table structure for table `commande_produit` */
 
@@ -71,7 +73,7 @@ CREATE TABLE `commande_produit` (
   KEY `produitID` (`produitID`),
   CONSTRAINT `commande_produit_ibfk_1` FOREIGN KEY (`commandeID`) REFERENCES `commande` (`ID`),
   CONSTRAINT `commande_produit_ibfk_2` FOREIGN KEY (`produitID`) REFERENCES `produit` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=latin1;
 
 /*Data for the table `commande_produit` */
 
@@ -117,7 +119,10 @@ insert  into `commande_produit`(`ID`,`commandeID`,`produitID`,`prix`) values
 (93,57,32,59.99),
 (94,58,27,59.99),
 (95,58,28,59.99),
-(96,59,44,59.99);
+(96,59,44,59.99),
+(97,60,16,59.99),
+(98,60,37,59.99),
+(99,61,44,59.99);
 
 /*Table structure for table `console` */
 
@@ -231,25 +236,25 @@ CREATE TABLE `produit` (
 
 insert  into `produit`(`ID`,`nom`,`prix`,`consoleID`,`genreID`,`limite_ageID`,`multijoueurID`,`image`,`description`,`actif`,`video`) values 
 (15,'Fallout_76',179.99,2,1,3,2,'public/images/turd76jpg.jpg','Consulte un médecin pour ton état de santé mentale si tu comptes acheter ce truc',0,'https://www.youtube.com/embed/dQw4w9WgXcQ'),
-(16,'Fortnight',59.99,2,2,1,6,'public/images/15-Brilliant-Toys-For-Autistic-Children-To-Play-And-Learn.jpg','Dégâts mentaux irréversibles garantis',1,'https://www.youtube.com/embed/dQw4w9WgXcQ'),
-(17,'Darkest_Dungeon',29.99,2,5,4,1,'public/images/91b2e81e9b5482d1c64f7875317317c6_390x400_1x-0.jpg','Parfait pour s\'occuper en cours du soir',1,'https://www.youtube.com/embed/dQw4w9WgXcQ'),
-(18,'Walking_Simulator',59.99,3,1,5,1,'public/images/Death-Stranding-PS4.jpg','ft. Daryl & Seydoux (Dieu sait ce qui les a embarqué à jouer dans cette daube)',1,'https://www.youtube.com/embed/dQw4w9WgXcQ'),
-(19,'The_Witcher_3',59.99,2,1,5,1,'public/images/1422469608-7141-jaquette-avant.jpeg','Le seul jeu underrated en ayant 20/20',1,'https://www.youtube.com/embed/c0i88t0Kacs'),
-(20,'Metal_Gear_Solid_5',59.99,3,1,5,1,'public/images/1425933401-9477-jaquette-avant.jpg','Potable mais pourquoi un bras bionique ROUGE ???',1,'https://www.youtube.com/embed/dQw4w9WgXcQ'),
-(21,'DOOM_Eternal',59.99,5,2,4,1,'public/images/1560427186-2226-jaquette-avant.jpeg','Donc on se réveille sur un autre monde et on doit bash du démon et des mort-vivants... pourquoi déjà? parce que ta gueule',1,'https://www.youtube.com/embed/dQw4w9WgXcQ'),
-(22,'League_of_Legend',9.99,2,5,3,2,'public/images/jaquette-league-of-legends-pc-cover-avant-g.jpeg','Source de revenu principale des petits réparateurs de PC',1,'https://www.youtube.com/embed/dQw4w9WgXcQ'),
-(23,'Call_of_Duty_(PS4)',59.99,3,2,5,6,'public/images/Call-of-Duty-Modern-Warfare-PS4.jpg','Le même jeu recyclé depuis 1998, enjoy!',1,'https://www.youtube.com/embed/dQw4w9WgXcQ'),
-(24,'Call_of_Duty_(PC)',59.99,2,2,4,6,'public/images/call-of-duty-modern-warfare-2019_large.png','Le même jeu recyclé depuis 1998, enjoy!',1,'https://www.youtube.com/embed/dQw4w9WgXcQ'),
-(25,'The_Last_of_Us_2',59.99,3,1,4,1,'public/images/FIGFP4824_1.jpg','Coming soon -- Le scénario a intérêt à être un chef d\'oeuvre',1,'https://www.youtube.com/embed/dQw4w9WgXcQ'),
+(16,'Fortnight',59.99,2,2,1,6,'public/images/003824b_0.jpg','Dégâts mentaux irréversibles garantis',1,'https://www.youtube.com/embed/2gUtfBmw86Y'),
+(17,'Darkest_Dungeon',29.99,2,5,4,1,'public/images/91b2e81e9b5482d1c64f7875317317c6_390x400_1x-0.jpg','Parfait pour s\'occuper en cours du soir',1,'https://www.youtube.com/embed/h-mXN3akTPU'),
+(18,'Walking_Simulator',59.99,3,1,5,1,'public/images/Death-Stranding-PS4.jpg','ft. Daryl & Seydoux (Dieu sait ce qui les a embarqué à jouer dans cette daube)',1,'https://www.youtube.com/embed/Hen8tPH0A2w'),
+(19,'The_Witcher_3',59.99,2,1,5,1,'public/images/1422469608-7141-jaquette-avant.jpeg','Le seul jeu underrated en ayant 20/20',1,'https://www.youtube.com/embed/ehjJ614QfeM'),
+(20,'Metal_Gear_Solid_5',59.99,3,1,5,1,'public/images/1425933401-9477-jaquette-avant.jpg','Potable mais pourquoi un bras bionique ROUGE ???',1,'https://www.youtube.com/embed/C19ap2M7DDE'),
+(21,'DOOM_Eternal',59.99,5,2,4,1,'public/images/1560427186-2226-jaquette-avant.jpeg','Donc on se réveille sur un autre monde et on doit bash du démon et des mort-vivants... pourquoi déjà? parce que ta gueule',1,'https://www.youtube.com/embed/VOIm3aVZ5q8'),
+(22,'League_of_Legend',9.99,2,5,3,2,'public/images/jaquette-league-of-legends-pc-cover-avant-g.jpeg','Source de revenu principale des petits réparateurs de PC',1,'https://www.youtube.com/embed/cXZqfuJ9Zps'),
+(23,'Call_of_Duty_(PS4)',59.99,3,2,5,6,'public/images/Call-of-Duty-Modern-Warfare-PS4.jpg','Le même jeu recyclé depuis 1998, enjoy!',1,'https://www.youtube.com/embed/bH1lHCirCGI'),
+(24,'Call_of_Duty_(PC)',59.99,2,2,4,6,'public/images/call-of-duty-modern-warfare-2019_large.png','Le même jeu recyclé depuis 1998, enjoy!',1,'https://www.youtube.com/embed/bH1lHCirCGI'),
+(25,'The_Last_of_Us_2',59.99,3,1,4,1,'public/images/FIGFP4824_1.jpg','Coming soon -- Le scénario a intérêt à être un chef d\'oeuvre',1,'https://www.youtube.com/embed/qPNiIeKMHyg'),
 (26,'Lost_Ember',49.99,4,1,1,1,'public/images/lost_ember_xBox.jpg','Vous aimez bien les renards? Jouez à ce jeu',1,'https://www.youtube.com/embed/dQw4w9WgXcQ'),
-(27,'Past_Cure_(PC)',59.99,3,1,1,1,'public/images/past_cure_ps4_.jpg','Aucune idée de quoi ce jeu parle',1,'https://www.youtube.com/embed/dQw4w9WgXcQ'),
-(28,'Past_Cure_(xBox)',59.99,1,1,3,1,'public/images/PastCure_box_pc.png','Aucune idée de quoi ce jeu parle',1,'https://www.youtube.com/embed/dQw4w9WgXcQ'),
+(27,'Past_Cure_(PC)',59.99,3,1,1,1,'public/images/past_cure_ps4_.jpg','Aucune idée de quoi ce jeu parle',1,'https://www.youtube.com/embed/e-a6oHBMZBQ'),
+(28,'Past_Cure_(xBox)',59.99,1,1,3,1,'public/images/PastCure_box_pc.png','Aucune idée de quoi ce jeu parle',1,'https://www.youtube.com/embed/e-a6oHBMZBQ'),
 (29,'Minecraft',19.99,2,1,2,2,'public/images/minecraft-cover.jpeg','Apparemment des gens deviennent riches en farmant de l\'or sur ce jeu sorti des années 60, faudrait que je m\'y mette',1,'https://www.youtube.com/embed/dQw4w9WgXcQ'),
-(30,'Les_Simpson',29.99,4,3,2,1,'public/images/lsljwi0f.jpg','Tu aimes te moquer des gros chauves? Ce jeu est pour toi.',1,'https://www.youtube.com/embed/dQw4w9WgXcQ'),
-(31,'Animal_Crossing',49.99,5,5,1,2,'public/images/Animal-Croing-New-Horizons-Nintendo-Switch.jpg','Substitut d\'environnement social en période de confinement',1,'https://www.youtube.com/embed/dQw4w9WgXcQ'),
-(32,'Jumanji',59.99,5,3,1,1,'public/images/819E5rW6diL._AC_SY500_.jpg','Jouer the Rock n\'augmente pas ton sex appeal',1,'https://www.youtube.com/embed/dQw4w9WgXcQ'),
-(33,'Overcooked',19.99,5,3,2,3,'public/images/10019750510622.jpg','Responsable de 98% des ruptures et des meurtres multiples au milieu d\'une \"petite soirée entre amis\"',1,'https://www.youtube.com/embed/dQw4w9WgXcQ'),
-(34,'Interville',19.99,4,4,1,1,'public/images/jaquette-intervilles-wii-cover-avant-g.jpg','Bonus: Cécile de Ménibus ne ressemblait pas encore à une momie!',1,'https://www.youtube.com/embed/dQw4w9WgXcQ'),
+(30,'Les_Simpson',29.99,4,3,2,1,'public/images/lsljwi0f.jpg','Tu aimes te moquer des gros chauves? Ce jeu est pour toi.',1,'https://www.youtube.com/embed/PGlzCaV_0aA'),
+(31,'Animal_Crossing',49.99,5,5,1,2,'public/images/Animal-Croing-New-Horizons-Nintendo-Switch.jpg','Substitut d\'environnement social en période de confinement',1,'https://www.youtube.com/embed/_3YNL0OWio0'),
+(32,'Jumanji',59.99,5,3,1,1,'public/images/819E5rW6diL._AC_SY500_.jpg','Jouer the Rock n\'augmente pas ton sex appeal',1,'https://www.youtube.com/embed/OAZB2VinTbI'),
+(33,'Overcooked',19.99,5,3,2,3,'public/images/10019750510622.jpg','Responsable de 98% des ruptures et des meurtres multiples au milieu d\'une ',1,'https://www.youtube.com/embed/Ob6VIECzAFk'),
+(34,'Interville',19.99,4,4,1,1,'public/images/jaquette-intervilles-wii-cover-avant-g.jpg','Bonus: Cécile de Ménibus ne ressemblait pas encore à une momie!',1,'https://www.youtube.com/embed/Tcr_bLmhmQM'),
 (35,'Just_Cause_4',59.99,1,3,5,1,'public/images/518ad1bb22784b5a8755c0879fbaf68a.jpeg','Exploseur de vaches simulator',0,'https://www.youtube.com/embed/dQw4w9WgXcQ'),
 (36,'Just_Cause_4',59.99,1,3,5,1,'public/images/518ad1bb22784b5a8755c0879fbaf68a.jpeg','Exploseur de vaches simulator',1,'https://www.youtube.com/embed/Lfek7Kcq16g'),
 (37,'The_division_2',59.99,1,1,5,1,'public/images/9908369260574.jpg','Un jeu post-apocalyptique sans zombies? Quel gâchis...',1,'https://www.youtube.com/embed/sli7AbX2bEk'),
@@ -257,7 +262,7 @@ insert  into `produit`(`ID`,`nom`,`prix`,`consoleID`,`genreID`,`limite_ageID`,`m
 (39,'Gears_5',59.99,1,2,5,1,'public/images/badae48cf2a4a14d9c0744e193c0b1d3.jpg','Ils ont fait un jeu pour les macho manque de virilité.',1,'https://www.youtube.com/embed/SEpWlFfpEkU'),
 (40,'Far_Cry_5',59.99,1,1,5,4,'public/images/far-cry-5-jeu-xbox-one.jpg','Cas d\'école sur comment détruire une bonne licence',1,'https://www.youtube.com/embed/Kdaoe4hbMso'),
 (41,'Ghost_Recon',59.99,3,3,5,6,'public/images/91pvt7NzDpL._AC_SL1500_.jpg','\'Un_jour_normal_en_Colombie\' Simulator',1,'https://www.youtube.com/embed/y-9_d3IT_yA'),
-(42,'Fallout_76',666.66,2,1,4,2,'public/images/turd76jpg.jpg','le jeu du diable',1,'https://www.youtube.com/embed/dQw4w9WgXcQ'),
+(42,'Fallout_76',666.66,2,1,4,2,'public/images/1528987868-4549-jaquette-avant.jpg','le jeu du diable',1,'https://www.youtube.com/embed/M9FGaan35s0'),
 (44,'Red_Dead_Redemption_2',59.99,3,1,5,1,'public/images/red-dead-redemption-2-standard-edition-cover.jpg','N\'oubliez pas de retirer votre chapeau en sortant de chez vous après',1,'https://www.youtube.com/embed/dQw4w9WgXcQ'),
 (45,'Resident_Evil_3',59.99,3,3,5,1,'public/images/1576066738-4915-jaquette-avant.jpg','Une question demeure : Pourquoi donner cette coupe à Carlos???',1,'https://www.youtube.com/embed/9LrLM4Hvr9U');
 

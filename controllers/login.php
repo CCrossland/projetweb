@@ -3,7 +3,6 @@ require 'models/users.php';
 
 function isValidUser($login, $password) {
     $user = getUserByLogin($login);
-    // Ici on va vérifier si le login/pass est bon
     if($user && password_verify($password, $user['password'] ))
     {
         return $user;
@@ -17,7 +16,6 @@ if(!empty($_SESSION['id'])){
 if(!empty($_POST)) {
     if(!empty($_POST['login']) && !empty($_POST['password']))
     {
-        
         $user = isValidUser($_POST['login'], $_POST['password']);
 
         if($user)

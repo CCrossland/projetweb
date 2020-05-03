@@ -1,6 +1,6 @@
 <?php ob_start() ?>
 
-<img style="margin-top: 25px" src="<?= ROOT_PATH . $article['image'] ?>" width="32%" height="400">
+<img id="imgArticle1" src="<?= ROOT_PATH . $article['image'] ?>" width="32%" height="400">
 
 
 <?php if(!empty($article['video'])) : ?>

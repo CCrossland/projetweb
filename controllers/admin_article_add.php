@@ -90,5 +90,5 @@ if(!empty($_POST)) {
         $_SESSION['error'] = "Les champs Nom, Prix et Catégorie sont obligatoire !";
     }
 }
-include 'views/article_add.php';
+include 'views/admin_article_add.php';
 ?>

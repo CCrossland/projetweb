@@ -52,12 +52,10 @@ function createJeu($nom, $prix, $consoleID = "", $genreID = "", $limite_ageID = 
 
 function deleteJeu($id)
 {
-    //$reponse = getDB()->prepare("DELETE FROM Produit WHERE nom = :nom");
     $reponse = getDB()->prepare("UPDATE Produit SET actif = 0 WHERE ID = :ID");
     $reponse->execute([':ID' => $id]);
     $reponse->closeCursor();
 }
-
 
 // Console
 

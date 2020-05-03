@@ -1,0 +1,82 @@
+/* page welcome */
+
+#welcomeContainer1 {
+    height: 360px; 
+    margin-top: 40px;
+}
+
+#welcomeContainer2{
+    position: relative; 
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: 20px; 
+    width: 100%;
+}
+
+#welcomeImage1{
+    position: absolute; 
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: 1px; 
+    width: 100%;
+}
+
+#welcomeConsoleList1{
+    position: relative; 
+    left: 10%; 
+    top: 260px; 
+    margin-right: auto; 
+    width: 90%
+}
+
+#welcomeConsoleListElements{
+    margin-left: 0.35%; 
+    height: 40px; 
+    width: 17%
+}
+
+/* page stats */
+
+#chartContainer{
+    height: 370px; 
+    width: 100%;
+}
+
+#chartContainer2{
+    height: 370px; 
+    width: 100%;
+}
+
+/* page article */
+
+#imgArticle1{
+    margin-top: 25px
+}
+
+#articleInfos{
+    margin-top: 35px
+}
+
+/* page articles */
+
+#articlesConsolesList{
+    height: 50px; 
+    width: 100%;
+}
+
+#articlesCardBorder{
+    width: 91%
+}
+
+#articlesPrix{
+    width: 100%; 
+    pointer-events: none;
+}
+
+#articlesInfos{
+    height: 130px
+}
+
+#articlesCardFooter{
+    width: 100%;
+}

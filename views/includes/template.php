@@ -9,23 +9,31 @@ require_once 'models/users.php';
     <meta charset="utf-8" />
     <link rel="stylesheet" href="<?= ROOT_PATH ?>public/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= ROOT_PATH ?>public/css/sticky-footer-navbar.css">
-    <link rel="stylesheet" href="<?= ROOT_PATH ?>public/css/panier_visu.css">
+    
 
-    <script src="<?= ROOT_PATH ?>public/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="<?= ROOT_PATH ?>public/js/jquery-3.5.0.min.js"></script>
     <script src="<?= ROOT_PATH ?>public/js/popper.min.js"></script>
     <script src="<?= ROOT_PATH ?>public/js/bootstrap.min.js"></script>
 
     <!-- panier -->
     <link rel="stylesheet" href="<?= ROOT_PATH ?>public/css/all.min.css">
+    <link rel="stylesheet" href="<?= ROOT_PATH ?>public/css/panier_visu.css">
+    <script src="<?= ROOT_PATH ?>public/js/panier.js"></script>
 
-
+    <!-- statistiques -->
+    <script src="<?= ROOT_PATH ?>public/js/stats.js"></script>
+    
     <!-- canvas -->
     <script src="<?= ROOT_PATH ?>public/js/canvasjs.min.js"></script>
     <script src="<?= ROOT_PATH ?>public/js/canvasjs.react.js"></script>
 
+    <!-- regex -->
     <script src="<?= ROOT_PATH ?>public/js/regex.js"></script>
     <script src="<?= ROOT_PATH ?>public/js/regexProduit.js"></script>
-    <script src="<?= ROOT_PATH ?>public/js/panier.js"></script>
+
+    <!-- style personnalisé  -->
+    <link rel="stylesheet" href="<?= ROOT_PATH ?>public/css/editPerso.css">
+
 
     <title><?php echo $title; ?></title>
 </head>

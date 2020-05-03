@@ -31,5 +31,5 @@ if (!empty($_POST) && !empty($_POST['login']) && !empty($_POST['mail'])){
         exit();
     }
 }
-include 'views/user_edit.php';
+include 'views/admin_user_edit.php';
 ?>
